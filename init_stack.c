@@ -12,51 +12,6 @@
 
 #include "push_swap.h"
 
-long	ft_atoi(char *str)
-{
-	long	res;
-	int	sign;
-	int	i;
-
-	res = 0;
-	i = 0;
-	sign = 1;
-	while (str[i] == 32 || str[i] >= 9 && str[i] <= 13)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = (res * 10) + (str[i] - 48);
-		i++;
-	}
-	return (res * sign);
-}
-
-int	is_digit(char *number)
-{
-	int	i;
-
-	i = 0;
-	if (!number || number[0] == '\0')
-		return (1);
-	if (number[i] == '+' || number[i] == '-')
-		i++;
-	if (number[i] == '\0')
-		return (1);
-	while (number[i])
-	{
-		if (!(number[i] >= '0' && number[i] <= '9'))
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 t_stack	*find_last(t_stack *a)
 {
 	t_stack	*last;
@@ -66,7 +21,7 @@ t_stack	*find_last(t_stack *a)
 	last = a;
 	while (last->next != NULL)
 	{
-		last = last->next;	
+		last = last->next;
 	}
 	return (last);
 }
@@ -75,7 +30,6 @@ void	add_node(t_stack **a, int number)
 {
 	t_stack	*this_node;
 	t_stack	*last_node;
-
 
 	if (a == NULL)
 		return ;
@@ -95,34 +49,6 @@ void	add_node(t_stack **a, int number)
 	}
 	this_node->next = NULL;
 	this_node->number = number;
-
-}
-
-void	free_list(t_stack **a)
-{
-	t_stack	*tmp;
-
-	while (*a != NULL)
-	{
-		tmp = (*a)->next;
-		free(*a);
-		*a = tmp;
-	}
-}
-
-void	free_av(char **av)
-{
-	int	i;
-
-	if (av == NULL)
-		return ;
-	i = 0;
-	while (av[i])
-	{
-		free(av[i]);
-		i++;
-	}
-	free(av);
 }
 
 void	print_error(t_stack **a, char **av, bool ac_2)
@@ -147,11 +73,11 @@ int	is_duplicated(t_stack *a, long number)
 
 void	init_stack(t_stack **a, char **av, bool ac_2)
 {
-	int	i;
+	int		i;
 	long	number;
 
 	if (!av)
-		print_error(a, av,  ac_2);
+		print_error(a, av, ac_2);
 	i = 0;
 	while (av[i])
 	{

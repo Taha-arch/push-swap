@@ -66,28 +66,28 @@ void	do_sort(t_stack **a, t_stack **b)
 		push_swap(a, b);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    t_stack	*a;
-    t_stack	*b;
-    char	**split;
+	t_stack	*a;
+	t_stack	*b;
+	char	**split;
 
-    a = NULL;
-    b = NULL;
-    if (ac < 2)
-        return (0);
-    split = parse_args(ac, av, &a);
-    if (is_sorted(a))
-    {
-        free_list(&a);
-        if (split)
-            free_av(split);
-        return (0);
-    }
-    do_sort(&a, &b);
-    free_list(&a);
-    free_list(&b);
-    if (split)
-        free_av(split);
-    return (0);
+	a = NULL;
+	b = NULL;
+	if (ac < 2)
+		return (0);
+	split = parse_args(ac, av, &a);
+	if (is_sorted(a))
+	{
+		free_list(&a);
+		if (split)
+			free_av(split);
+		return (0);
+	}
+	do_sort(&a, &b);
+	free_list(&a);
+	free_list(&b);
+	if (split)
+		free_av(split);
+	return (0);
 }

@@ -42,7 +42,7 @@ int	count_words(char *av)
 
 char	*copy_word(int start, int end, char *av)
 {
-	int	i;
+	int		i;
 	char	*res;
 
 	res = malloc(end - start + 1);
@@ -88,11 +88,13 @@ char	**ft_spliting(char *av, int start, char	**res)
 
 char	**ft_split(char	*av)
 {
-	int	words;
-	int	start;
+	int		words;
+	int		start;
 	char	**res;
 
 	words = count_words(av);
+	if (!words)
+		return (NULL);
 	start = 0;
 	res = malloc((words + 1) * sizeof(char *));
 	if (!res)

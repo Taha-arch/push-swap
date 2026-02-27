@@ -14,7 +14,7 @@
 
 int	stack_size(t_stack *stack)
 {
-	int	count;
+	int		count;
 	t_stack	*tmp;
 
 	if (stack == NULL)
@@ -47,7 +47,7 @@ int	is_sorted(t_stack *a)
 
 void	assign_index(t_stack *a)
 {
-	int	index;
+	int		index;
 	t_stack	*tmp;
 	t_stack	*head;
 
@@ -58,7 +58,6 @@ void	assign_index(t_stack *a)
 	{
 		tmp = a;
 		index = 0;
-		
 		while (tmp != NULL)
 		{
 			if (head->number > tmp->number)
@@ -88,7 +87,7 @@ t_stack	*find_max(t_stack *b)
 
 int	get_position(t_stack *stack, t_stack *node)
 {
-	int	pos;
+	int		pos;
 	t_stack	*tmp;
 
 	if (!stack || !node)
@@ -98,7 +97,7 @@ int	get_position(t_stack *stack, t_stack *node)
 	while (tmp != NULL)
 	{
 		if (tmp == node)
-			return (pos);	
+			return (pos);
 		tmp = tmp->next;
 		pos++;
 	}
